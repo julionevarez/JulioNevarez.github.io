@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Julio Nevarez — Computer Science</title>
+  <meta name="description" content="Julio Nevarez — CS student at San Diego State University. Systems, cloud, and esports.">
+  <script type="text/javascript" nonce="7c1fd88a693943f7b9b839a15f3" src="//local.adguard.org?ts=1771833236365&amp;type=content-script&amp;dmn=cdn.discordapp.com&amp;url=https%3A%2F%2Fcdn.discordapp.com%2Fattachments%2F1187231790042194061%2F1475403023168831622%2Findex.html%3Fex%3D699d5ba4%26is%3D699c0a24%26hm%3D703b329fa5a08d09fa7b6c24133005e70585d29f59c4faf18c8f7005a8181f2e%26&amp;app=chrome.exe&amp;css=3&amp;js=1&amp;rel=1&amp;rji=1&amp;sbe=1"></script><script type="text/javascript" nonce="7c1fd88a693943f7b9b839a15f3" src="//local.adguard.org?ts=1771833236365&amp;name=AdGuard%20Extra&amp;name=AdGuard%20Popup%20Blocker&amp;type=user-script"></script><link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --ink: #1a1a1a;
+      --ink-light: #555;
+      --ink-faint: #888;
+      --accent: #2d5a27;
+      --accent-light: #e8f0e6;
+      --bg: #faf9f7;
+      --card: #ffffff;
+      --border: #e2e0dc;
+      --serif: 'Instrument Serif', Georgia, serif;
+      --sans: 'DM Sans', system-ui, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,.04), 0 1px 2px rgba(0,0,0,.06);
+      --shadow-md: 0 4px 12px rgba(0,0,0,.06), 0 2px 4px rgba(0,0,0,.04);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.65;
+      font-size: 15px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ---- Grain overlay ---- */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    /* ---- Layout ---- */
+    .page {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 48px 24px 80px;
+    }
+
+    /* ---- Header ---- */
+    .header {
+      text-align: center;
+      margin-bottom: 48px;
+      animation: fadeUp .6s ease both;
+    }
+
+    .header h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 6vw, 3.4rem);
+      font-weight: 400;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .header .tagline {
+      font-size: 14px;
+      color: var(--ink-faint);
+      margin-top: 8px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 500;
+    }
+
+    .contact-row {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 6px 18px;
+      margin-top: 16px;
+      font-size: 13.5px;
+      color: var(--ink-light);
+    }
+
+    .contact-row a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color .2s;
+    }
+
+    .contact-row a:hover { border-bottom-color: var(--accent); }
+
+    .contact-row .sep { color: var(--border); }
+
+    /* ---- Nav pills ---- */
+    .nav-pills {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 24px;
+      animation: fadeUp .6s ease .1s both;
+    }
+
+    .nav-pills a {
+      font-size: 12.5px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1.5px solid var(--border);
+      color: var(--ink-light);
+      text-decoration: none;
+      transition: all .2s;
+    }
+
+    .nav-pills a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--accent-light);
+    }
+
+    /* ---- Sections ---- */
+    .section {
+      margin-bottom: 40px;
+      animation: fadeUp .5s ease both;
+    }
+
+    .section:nth-child(2) { animation-delay: .15s; }
+    .section:nth-child(3) { animation-delay: .2s; }
+    .section:nth-child(4) { animation-delay: .25s; }
+    .section:nth-child(5) { animation-delay: .3s; }
+    .section:nth-child(6) { animation-delay: .35s; }
+    .section:nth-child(7) { animation-delay: .4s; }
+    .section:nth-child(8) { animation-delay: .45s; }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--accent);
+      margin-bottom: 20px;
+      padding-bottom: 8px;
+      border-bottom: 1.5px solid var(--border);
+    }
+
+    /* ---- Cards ---- */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 20px 22px;
+      margin-bottom: 14px;
+      box-shadow: var(--shadow-sm);
+      transition: box-shadow .25s, transform .25s;
+    }
+
+    .card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-1px);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 4px 12px;
+    }
+
+    .card-header h3 {
+      font-size: 15.5px;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .card-header h3 .sub {
+      font-weight: 400;
+      color: var(--ink-light);
+    }
+
+    .card-header .date {
+      font-size: 13px;
+      color: var(--ink-faint);
+      white-space: nowrap;
+      font-style: italic;
+    }
+
+    .card-location {
+      font-size: 13px;
+      color: var(--ink-faint);
+      margin-top: 2px;
+    }
+
+    .card ul {
+      margin-top: 10px;
+      padding-left: 18px;
+    }
+
+    .card li {
+      margin-bottom: 5px;
+      font-size: 14px;
+      color: var(--ink-light);
+      line-height: 1.6;
+    }
+
+    .card li::marker { color: var(--accent); }
+
+    .card .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 12px;
+    }
+
+    .tag {
+      font-size: 11.5px;
+      font-weight: 600;
+      padding: 3px 10px;
+      border-radius: 100px;
+      background: var(--accent-light);
+      color: var(--accent);
+      letter-spacing: 0.02em;
+    }
+
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--accent);
+      text-decoration: none;
+      margin-top: 10px;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 1px solid var(--accent-light);
+      transition: all .2s;
+    }
+
+    .github-link:hover {
+      background: var(--accent-light);
+    }
+
+    .github-link svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* ---- Skills grid ---- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+      gap: 12px;
+    }
+
+    .skill-group {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .skill-group h4 {
+      font-size: 11.5px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .skill-group p {
+      font-size: 13.5px;
+      color: var(--ink-light);
+      line-height: 1.55;
+    }
+
+    /* ---- Achievements ---- */
+    .achievement {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .achievement:last-child { border-bottom: none; }
+
+    .achievement .place {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--accent);
+      min-width: 52px;
+      text-align: center;
+      line-height: 1;
+    }
+
+    .achievement .details {
+      font-size: 14px;
+      color: var(--ink-light);
+    }
+
+    .achievement .details strong {
+      color: var(--ink);
+      font-weight: 600;
+    }
+
+    /* ---- Cert link ---- */
+    .cert-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 700;
+      border-bottom: 1.5px solid var(--accent-light);
+      transition: border-color .2s;
+    }
+
+    .cert-link:hover { border-bottom-color: var(--accent); }
+
+    /* ---- Footer ---- */
+    .footer {
+      text-align: center;
+      padding: 32px 0 0;
+      font-size: 12.5px;
+      color: var(--ink-faint);
+      border-top: 1px solid var(--border);
+      margin-top: 48px;
+    }
+
+    /* ---- Animations ---- */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ---- Print ---- */
+    @media print {
+      body { background: white; font-size: 13px; }
+      body::before { display: none; }
+      .page { padding: 0; max-width: 100%; }
+      .card { box-shadow: none; border: 1px solid #ddd; break-inside: avoid; }
+      .nav-pills { display: none; }
+      .section, .header { animation: none; }
+    }
+
+    /* ---- Mobile ---- */
+    @media (max-width: 600px) {
+      .page { padding: 32px 16px 60px; }
+      .card { padding: 16px; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .card-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header" id="top">
+    <h1>Julio Nevarez</h1>
+    <p class="tagline">Computer Science · San Diego State University</p>
+    <div class="contact-row">
+      <span>jn1035159@hotmail.com</span>
+      <span class="sep">·</span>
+      <span>(619) 517-5650</span>
+      <span class="sep">·</span>
+      <span>Chula Vista, CA</span>
+    </div>
+    <div class="contact-row" style="margin-top:8px;">
+      <a href="https://github.com/YOUR-USERNAME" target="_blank">GitHub</a>
+      <span class="sep">·</span>
+      <a href="https://linkedin.com/in/YOUR-LINKEDIN" target="_blank">LinkedIn</a>
+    </div>
+    <nav class="nav-pills">
+      <a href="#education">Education</a>
+      <a href="#projects">Projects</a>
+      <a href="#work">Work</a>
+      <a href="#esports">Esports</a>
+      <a href="#skills">Skills</a>
+      <a href="#certs">Certifications</a>
+    </nav>
+  </header>
+
+  <!-- EDUCATION -->
+  <section class="section" id="education">
+    <h2 class="section-title">Education</h2>
+    <div class="card">
+      <div class="card-header">
+        <h3>San Diego State University <span class="sub">— B.S. Computer Science</span></h3>
+        <span class="date">May 2026</span>
+      </div>
+      <div class="card-location">San Diego, CA</div>
+      <ul>
+        <li><strong>Relevant Coursework:</strong> Algorithms, Data Science, Computer Security, Computational Linguistics, 3D Game Programming, Artificial Intelligence, Data Structures, Unix/Linux Administration, Computer Architecture, Statistics &amp; Probability</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- TECHNICAL PROJECTS -->
+  <section class="section" id="projects">
+    <h2 class="section-title">Technical Projects</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Unix/Linux Virtual Lab <span class="sub">— System Administration</span></h3>
+      </div>
+      <ul>
+        <li>Created a multi-VM lab (OpenBSD, AlmaLinux, FreeBSD, Proxmox) with centralized DNS/LDAP, NFS file server, Docker web server, and custom PKI for HTTPS.</li>
+        <li>Used Proxmox + NFS to back up and restore a FreeBSD server and troubleshoot nested virtualization, VPN routing, and NFS/SSL issues.</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">Proxmox</span>
+        <span class="tag">Docker</span>
+        <span class="tag">DNS</span>
+        <span class="tag">LDAP</span>
+        <span class="tag">PKI</span>
+        <span class="tag">NFS</span>
+      </div>
+      <a class="github-link" href="#" target="_blank">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        View Repo
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Process Scheduling &amp; I/O Simulation <span class="sub">— Operating Systems</span></h3>
+      </div>
+      <ul>
+        <li>Built a discrete-event simulator in C++ that parses a process workload file and emulates a single-CPU system with an I/O device.</li>
+        <li>Implemented FCFS, SJF, and Round Robin schedulers; modeled ready queues, blocked queues, and context switches.</li>
+        <li>Generated per-run statistics (avg waiting/turnaround/response time, CPU utilization) to compare scheduling trade-offs.</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">C++</span>
+        <span class="tag">Algorithms</span>
+        <span class="tag">Simulation</span>
+      </div>
+      <a class="github-link" href="#" target="_blank">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        View Repo
+      </a>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Movie Theatre Ticketing System <span class="sub">— Software Systems</span></h3>
+      </div>
+      <ul>
+        <li>Collaborated in a 4-person team to design a theatre ticketing system; authored SRS/SDS including architecture diagram, UML class diagram, and data management plan.</li>
+        <li>Developed a structured test plan with functional test cases; documented expected behavior, edge cases, and pass/fail criteria.</li>
+      </ul>
+      <div class="tag-row">
+        <span class="tag">Software Engineering</span>
+        <span class="tag">UML</span>
+        <span class="tag">Testing</span>
+      </div>
+      <a class="github-link" href="#" target="_blank">
+        <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+        View Repo
+      </a>
+    </div>
+  </section>
+
+  <!-- WORK EXPERIENCE -->
+  <section class="section" id="work">
+    <h2 class="section-title">Work Experience</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>FedEx <span class="sub">— Package Handler</span></h3>
+        <span class="date">Feb 2019 – Jan 2020</span>
+      </div>
+      <div class="card-location">Chula Vista, CA</div>
+      <ul>
+        <li>Collaborated with delivery drivers to organize and load trucks in a high-volume, fast-paced logistics environment.</li>
+        <li>Maintained strict attention to detail and safety protocols while processing and routing daily shipments.</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>AMC Theatres <span class="sub">— Associate</span></h3>
+        <span class="date">Jul 2017 – Jan 2019</span>
+      </div>
+      <div class="card-location">Chula Vista, CA</div>
+      <ul>
+        <li>Provided cross-functional support across ticketing, concessions, and facility management to ensure smooth daily operations.</li>
+        <li>Delivered highly responsive customer service in a high-traffic entertainment environment.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ESPORTS / RELEVANT EXPERIENCE -->
+  <section class="section" id="esports">
+    <h2 class="section-title">Esports &amp; Competitive Gaming</h2>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Professional Esports Player</h3>
+        <span class="date">2019 – Present</span>
+      </div>
+      <ul>
+        <li>Led a 2-person team to top finishes in multiple competitive Fortnite tournaments.</li>
+        <li>Analyzed competitor strategies and game data to refine tactics and improve win rate.</li>
+        <li>Coordinated daily training schedules and conducted post-match reviews.</li>
+      </ul>
+    </div>
+
+    <div style="padding: 8px 0;">
+      <div class="achievement">
+        <div class="place">16th</div>
+        <div class="details"><strong>Fortnite World Cup Finals</strong> — 2019</div>
+      </div>
+      <div class="achievement">
+        <div class="place">1st</div>
+        <div class="details"><strong>Fortnite Finals at TwitchCon</strong> — 2019</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNICAL SKILLS -->
+  <section class="section" id="skills">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>Languages</h4>
+        <p>C++, C#, Java, SQL, Bash, Python</p>
+      </div>
+      <div class="skill-group">
+        <h4>Cloud &amp; Data</h4>
+        <p>GCP, BigQuery, Looker, DataProc</p>
+      </div>
+      <div class="skill-group">
+        <h4>Systems &amp; OS</h4>
+        <p>Linux, FreeBSD, OpenBSD, OpenIndiana, Windows</p>
+      </div>
+      <div class="skill-group">
+        <h4>Tools &amp; Platforms</h4>
+        <p>Git, GitHub, Docker, VMware, Proxmox VE, VS Code</p>
+      </div>
+      <div class="skill-group">
+        <h4>Concepts</h4>
+        <p>Data Structures, Algorithms, REST APIs, CI/CD, Agile, OOP, Networking, DNS, LDAP, PKI/TLS</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section class="section" id="certs">
+    <h2 class="section-title">Certifications</h2>
+    <div class="card">
+      <div class="card-header">
+        <h3><a class="cert-link" href="https://www.credly.com/badges/YOUR-BADGE-ID" target="_blank">Google Cloud Data Analytics Certificate</a></h3>
+        <span class="date">March 2026</span>
+      </div>
+      <ul>
+        <li>Designed end-to-end data analysis workflows on Google Cloud Platform.</li>
+        <li>Extracted, cleaned, and transformed large datasets using SQL within BigQuery.</li>
+        <li>Developed interactive dashboards and visual reports using Looker.</li>
+      </ul>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <p>Julio Nevarez · Updated 2026</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
